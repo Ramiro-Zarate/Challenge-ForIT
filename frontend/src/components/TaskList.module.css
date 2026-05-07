@@ -1,0 +1,10 @@
+.taskListSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.searchInput {
+    width: 40rem;
+    height: 2rem;
+}
