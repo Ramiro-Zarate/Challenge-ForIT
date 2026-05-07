@@ -4,7 +4,7 @@ const ACCEPTED_ORIGINS = [
     'http://localhost:5173'
 ]
 
-export const corsMiddelware = ({acceptedOrigins = ACCEPTED_ORIGINS} = {}) =>{
+export const corsMiddlware = ({acceptedOrigins = ACCEPTED_ORIGINS} = {}) =>{
     return cors({
         origin: (origin, callback) => {
             if (acceptedOrigins.includes(origin) || !origin) {
