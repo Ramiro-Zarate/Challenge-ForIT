@@ -17,7 +17,7 @@ export class TaskController {
 
     static async create(req, res) {
         const newTask = await TaskModel.create({ input: req.body })
-        req.status(201).json(newTask)
+        res.status(201).json(newTask)
     }
 
     static async delete(req, res) {

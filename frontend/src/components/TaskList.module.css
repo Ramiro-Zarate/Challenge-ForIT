@@ -2,9 +2,26 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-block: 3rem;
 }
 
 .searchInput {
     width: 40rem;
     height: 2rem;
+}
+
+.taskList{
+    display: flex;
+    flex-direction: column;
+    margin-block: 2rem;
+    gap: 1rem;
+}
+
+.task{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 30rem;
+    background-color: #ffff;
 }

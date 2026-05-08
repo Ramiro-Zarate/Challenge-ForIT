@@ -1,5 +1,6 @@
 import styles from './TaskList.module.css'
 import { useTasks } from '../hook/useTasks'
+import { Link } from 'react-router'
 
 export function TaskList() {
     const { filteredTasks, loading } = useTasks()
@@ -18,6 +19,7 @@ export function TaskList() {
                             placeholder="Buscar tarea" 
                         />
                     </form>
+                    <Link to="/add" className={styles.addButton}>Agregar Tarea</Link>
             </div>
             {filteredTasks.length === 0 ? (
                 <p>No se encontraron tareas.</p>
@@ -25,8 +27,14 @@ export function TaskList() {
                 <div className={styles.taskList}>
                     {filteredTasks.map(task => (
                         <div className={styles.task} key={task.id} task={task}>
-                            <h3 className={styles.taskTitle}>{task.title}</h3>
-                            <p className={styles.taskDescription}>{task.description}</p>
+                            <div className={styles.taskText}>
+                                <h3 className={styles.taskTitle}>{task.title}</h3>
+                                <p className={styles.taskDescription}>{task.description}</p>
+                            </div>
+                            <div className={styles.taskActions}>
+                                <button>Completada</button>
+                                <button>Ver Mas</button>
+                            </div>
                         </div>
                     ))}      
                 </div>
