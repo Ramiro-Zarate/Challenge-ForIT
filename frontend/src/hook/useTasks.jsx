@@ -30,11 +30,27 @@ export function useTasks() {
         task.description?.toLowerCase().includes(query)
     )
 
+    const deleteTask = async (id) => {
+        const confirmDelete = window.confirm('¿Estás seguro de que deseas eliminar esta tarea?')
+        if (!confirmDelete) return
+
+        try {
+            const response = await fetch(`${API_URL}/tasks/${id}`, {
+                method: 'DELETE'
+            })
+            if (response.ok) {
+                setTasks(prevTasks => prevTasks.filter(task => task.id !== id))
+            } 
+        } catch (error) {
+            console.error('Error al borrar tarea:', error)
+        }
+    }
+
     return {
         tasks,
         filteredTasks,
         loading,
-        setTasks
+        deleteTask
     }
 }
 

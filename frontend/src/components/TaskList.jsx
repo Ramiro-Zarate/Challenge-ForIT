@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 import { TaskItem } from './TaskItem'
 
 export function TaskList() {
-    const { filteredTasks, loading } = useTasks()
+    const { filteredTasks, loading, deleteTask } = useTasks()
 
     if (loading) {
         return <p>Cargando tareas...</p>
@@ -27,7 +27,10 @@ export function TaskList() {
             ) : (
                 <div className={styles.taskList}>
                     {filteredTasks.map(task => (
-                        <TaskItem key={task.id} task={task} />
+                        <TaskItem 
+                        key={task.id} 
+                        task={task} 
+                        onDelete={deleteTask} />
                     ))}      
                 </div>
             )}
