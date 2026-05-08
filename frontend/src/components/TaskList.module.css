@@ -17,11 +17,3 @@
     gap: 1rem;
 }
 
-.task{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 30rem;
-    background-color: #ffff;
-}

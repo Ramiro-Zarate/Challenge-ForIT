@@ -3,6 +3,7 @@ import { Header } from './components/Header'
 import {TaskList} from './components/TaskList'
 import {TaskItem} from './components/TaskItem'
 import {TaskForm} from './components/TaskForm'
+import { TaskDetail } from './components/TaskDetail'
 
 function App() {
 
@@ -11,7 +12,7 @@ function App() {
     <Header />
     <Routes>
       <Route path='/' element={<TaskList />} />
-      <Route path='/:id' element={<TaskItem />} />
+      <Route path='/tasks/:id' element={<TaskDetail />} />
       <Route path='/add' element={<TaskForm />} />
       <Route path='/edit/:id' element={<TaskForm />} />
     </Routes>

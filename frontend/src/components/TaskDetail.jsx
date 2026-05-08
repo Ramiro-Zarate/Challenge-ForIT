@@ -9,7 +9,7 @@ export function TaskDetail() {
     const API_URL = import.meta.env.VITE_API_URL
 
     useEffect(() => {
-        fetch(`http://localhost:3000/tasks/${id}`)
+        fetch(`${API_URL}/tasks/${id}`)
         .then(response => response.json())
         .then(data => {
                 setTask(data),

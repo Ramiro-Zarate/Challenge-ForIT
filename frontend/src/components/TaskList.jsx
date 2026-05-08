@@ -27,16 +27,7 @@ export function TaskList() {
             ) : (
                 <div className={styles.taskList}>
                     {filteredTasks.map(task => (
-                        <div className={styles.task} key={task.id} task={task}>
-                            <div className={styles.taskText}>
-                                <h3 className={styles.taskTitle}>{task.title}</h3>
-                                <p className={styles.taskDescription}>{task.description}</p>
-                            </div>
-                            <div className={styles.taskActions}>
-                                <button>Completada</button>
-                                <button>Ver Mas</button>
-                            </div>
-                        </div>
+                        <TaskItem key={task.id} task={task} />
                     ))}      
                 </div>
             )}
