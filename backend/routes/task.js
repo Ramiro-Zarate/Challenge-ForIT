@@ -1,5 +1,5 @@
 import {Router} from 'express'
-import { TaskController } from '../controllers/task.controller.js'
+import { TaskController } from '../controllers/task.js'
 import { validateTask, validatePartialTask } from '../schemas/task.js'
 
 export const taskRouter = Router()
