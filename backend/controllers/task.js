@@ -31,5 +31,14 @@ export class TaskController {
         return res.json({ message: 'Tarea eliminada con éxito' })
     }
 
+    static async update(req, res) {
+        const { id } = req.params
+        const updatedTask = await TaskModel.update({ id, input: req.body })
 
+        if (!updatedTask) {
+            return res.status(404).json({ message: 'Tarea no encontrada' })
+        }
+
+        return res.json(updatedTask)
+    }
 }

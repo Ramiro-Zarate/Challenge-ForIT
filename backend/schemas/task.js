@@ -5,3 +5,11 @@ const TaskSchema = z.object({
     description: z.string().max(255, 'La descripcion debe tener menos de 255 caracteres').optional(),
     completed: z.boolean().default(false)
 })
+
+export function validateTask(input) {
+    return TaskSchema.safeParse(input)
+}
+
+export function validatePartialTask(input) {
+    return TaskSchema.partial().safeParse(input)
+}
