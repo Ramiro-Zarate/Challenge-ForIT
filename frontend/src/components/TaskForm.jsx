@@ -46,8 +46,8 @@ export function TaskForm() {
     return (
         <section className={styles.taskFormSection}>
             <h2>Agrega una nueva tarea</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
+            <form onSubmit={handleSubmit} className={styles.taskForm}>
+                <div className={styles.formTitle}>
                     <label>Título:</label>
                     <input
                         type="text"
@@ -58,7 +58,7 @@ export function TaskForm() {
                         placeholder='Ejemplo: Darle de comer al perro'
                     />
                 </div>
-                <div>
+                <div className={styles.formDescription}> 
                     <label>Descripción:</label>
                     <textarea
                         name="description"
@@ -67,12 +67,15 @@ export function TaskForm() {
                         placeholder='(Opcional)'
                     />
                 </div>
-                <button type="submit" disabled={loading}>
+                <div className={styles.formActions}>
+                    <button type="submit" disabled={loading}>
                     {loading ? 'Creando...' : 'Crear Tarea'}
-                </button>
-                <button type="button" onClick={() => navigate('/')}>
-                    Cancelar
-                </button>
+                    </button>
+                    <button type="button" onClick={() => navigate('/')}>
+                        Cancelar
+                    </button>
+                </div>
+                
             </form>
         </section>
     )
