@@ -1,6 +1,7 @@
 import styles from './TaskList.module.css'
 import { useTasks } from '../hook/useTasks'
 import { Link } from 'react-router'
+import { TaskItem } from './TaskItem'
 
 export function TaskList() {
     const { filteredTasks, loading } = useTasks()
