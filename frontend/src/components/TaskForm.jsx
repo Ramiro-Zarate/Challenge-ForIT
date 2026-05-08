@@ -1,8 +1,10 @@
 import styles from './TaskForm.module.css'
-import {useState} from 'react'
-import { useNavigate } from 'react-router'
+import {useState, useEffect} from 'react'
+import { useNavigate, useParams } from 'react-router'
+import { set } from 'zod'
 
 export function TaskForm() {
+    const { id } = useParams()
     const [task, setTask] = useState({
         title: '',
         description: ''
@@ -13,6 +15,19 @@ export function TaskForm() {
     const navigate = useNavigate()
     const API_URL = import.meta.env.VITE_API_URL
 
+    const isEditing = Boolean(id)
+
+    useEffect(() => {
+        if (isEditing) {
+            setLoading(true)
+            fetch(`${API_URL}/tasks/${id}`)
+                .then(response => response.json())
+                .then(data => setTask(data))
+                .catch(error => console.error('Error fetching tarea:', error))
+        }
+        }, [id, isEditing, API_URL])
+
+    
     const handleChange = (e) => {
         setTask({
             ...task,
@@ -23,9 +38,13 @@ export function TaskForm() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         setLoading(true)
+
+        const method = isEditing ? 'PUT' : 'POST'
+        const url = isEditing ? `${API_URL}/tasks/${id}` : `${API_URL}/tasks`
+
         try {
-            const response = await fetch(`${API_URL}/tasks`, {
-                method: 'POST',
+            const response = await fetch(url, {
+                method,
                 headers: { 
                     'Content-Type': 'application/json'
                 },
@@ -34,10 +53,10 @@ export function TaskForm() {
             if (response.ok) {
                 navigate('/')
             }   else {
-                console.error('Error creating task:', response.statusText)
+                console.error('Error:', response.statusText)
             }
         } catch (error) {
-            console.error('Error creating task:', error)
+            console.error('Error:', error)
         } finally {
             setLoading(false)
         }
@@ -45,7 +64,7 @@ export function TaskForm() {
 
     return (
         <section className={styles.taskFormSection}>
-            <h2>Agrega una nueva tarea</h2>
+            <h2>{isEditing ? 'Editar Tarea' : 'Crear Tarea'}</h2>
             <form onSubmit={handleSubmit} className={styles.taskForm}>
                 <div className={styles.formTitle}>
                     <label>Título:</label>
@@ -68,8 +87,8 @@ export function TaskForm() {
                     />
                 </div>
                 <div className={styles.formActions}>
-                    <button type="submit" disabled={loading}>
-                    {loading ? 'Creando...' : 'Crear Tarea'}
+                    <button type="submit">
+                        {isEditing ? 'Editar' : 'Crear'}
                     </button>
                     <button type="button" onClick={() => navigate('/')}>
                         Cancelar
