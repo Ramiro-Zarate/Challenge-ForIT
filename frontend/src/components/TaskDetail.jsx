@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router'
 import { useState, useEffect } from 'react'
+import styles from './TaskDetail.module.css'
 
 export function TaskDetail() {
     const { id } = useParams()
@@ -26,11 +27,11 @@ export function TaskDetail() {
     }
 
     return (
-        <section>
-            <Link to="/">Volver a la lista de tareas</Link>
-            <article>
-                <h2>{task.title}</h2>
-                <p>Descripcion: {task.description}</p>
+        <section className={styles.taskDetailSection}>
+            <Link className={styles.backButton} to="/">Volver a la lista de tareas</Link>
+            <article className={styles.taskDetail}>
+                <h2>Título: {task.title}</h2>
+                <p>Descripción: {task.description}</p>
                 <footer>
                     <p>ID: {task.id}</p>
                 </footer>
