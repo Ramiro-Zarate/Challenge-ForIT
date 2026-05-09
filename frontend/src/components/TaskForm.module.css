@@ -2,13 +2,23 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 2rem;
+
+    h2{
+        font-size: 3rem;
+        color: var(--black);
+    }
 }
 
 .taskForm{
-    background-color: turquoise;
+    background-color: #3e4e7d;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     margin-block: 1rem;
-    padding: 1rem;
+    padding: 4rem;
+    font-size: 2rem;
+    border-radius: 1rem;
 }
 
 .formTitle{
@@ -23,7 +33,25 @@
     margin-bottom: 1rem;
 }
 
+.formInput{ 
+    margin-left: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 1.2rem;
+}
+
 .formActions{
     display: flex;
     justify-content: center;
+    gap: 1rem;
+}
+.formButton{
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    font-size: 1.2rem;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
 }

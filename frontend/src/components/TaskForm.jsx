@@ -67,8 +67,8 @@ export function TaskForm() {
             <h2>{isEditing ? 'Editar Tarea' : 'Crear Tarea'}</h2>
             <form onSubmit={handleSubmit} className={styles.taskForm}>
                 <div className={styles.formTitle}>
-                    <label>Título:</label>
-                    <input
+                    <label>Título: </label>
+                    <input className={styles.formInput}
                         type="text"
                         name="title"
                         value={task.title}
@@ -78,8 +78,8 @@ export function TaskForm() {
                     />
                 </div>
                 <div className={styles.formDescription}> 
-                    <label>Descripción:</label>
-                    <textarea
+                    <label>Descripción: </label>
+                    <textarea className={styles.formInput}
                         name="description"
                         value={task.description}
                         onChange={handleChange}
@@ -87,10 +87,10 @@ export function TaskForm() {
                     />
                 </div>
                 <div className={styles.formActions}>
-                    <button type="submit">
+                    <button type="submit" className={styles.formButton}>
                         {isEditing ? 'Editar' : 'Crear'}
                     </button>
-                    <button type="button" onClick={() => navigate('/')}>
+                    <button type="button" onClick={() => navigate('/')} className={styles.formButton}>
                         Cancelar
                     </button>
                 </div>
