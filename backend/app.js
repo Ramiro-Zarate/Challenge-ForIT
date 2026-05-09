@@ -2,7 +2,7 @@ import express from 'express'
 import { corsMiddlware } from './middlwares/cors.js'
 import { taskRouter } from './routes/task.js'
 
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 const app = express()
     
 app.use(corsMiddlware())
