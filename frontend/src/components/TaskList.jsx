@@ -13,14 +13,7 @@ export function TaskList() {
     return (
         <section className={styles.taskListSection}>
             <div>
-                    <form role='search' className={styles.searchForm}>
-                        <input 
-                            className={styles.searchInput}
-                            type="text" 
-                            placeholder="Buscar tarea" 
-                        />
-                    </form>
-                    <Link to="/add" className={styles.addButton}>Agregar Tarea</Link>
+                <Link to="/add" className={styles.addButton}>Agregar tarea</Link>
             </div>
             {filteredTasks.length === 0 ? (
                 <p>No se encontraron tareas.</p>

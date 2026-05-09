@@ -3,6 +3,47 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 30rem;
+    width: 50rem;
     background-color: #ffff;
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
+.taskActions{
+    display: flex;
+    font-size: 1.2rem;
+    flex-direction: row;
+    align-items: center;
+    gap: .5rem;
+    font-weight: bold;
+}
+
+.taskLink{
+    text-decoration: none;
+    color: var(--primary-color);
+    background-color: #f0f0f0;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+}
+
+.trashButton{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #ff3939;
+}
+
+.completeButton{
+    background-color: transparent;
+    background-color: #f0f0f0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: .5rem;
+    padding: .5rem 1rem;
+}
+
+.completed{
+    background-color: green;
 }

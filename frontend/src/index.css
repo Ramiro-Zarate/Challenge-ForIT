@@ -5,11 +5,16 @@
 }
 
 :root {
-  --bg-color: #e0d3d3;
-  --primary-color: #f7af74;
+  --bg-color: #96bfe7;
+  --text-color: #ffffff;
+  --black: #000000;
+  --primary-color: #161b31;
+  
 }
 
 body {
+  font-family: 'Inter', sans-serif;
   background-color: var(--bg-color);
+  color: var(--text-color);
   font-size: 1.5rem;
 }
